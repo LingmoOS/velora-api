@@ -1,7 +1,7 @@
-Source: dde-api
+Source: velora-api
 Section: devel
 Priority: optional
-Maintainer: Deepin Packages Builder <packages@deepin.com>
+Maintainer: Lingmo OS Team <team@lingmo.org>
 Build-Depends:
  debhelper-compat (= 11),
  deepin-gettext-tools,
@@ -38,7 +38,7 @@ Build-Depends:
  libxi-dev,
  systemd,
 Standards-Version: 3.9.8
-Homepage: http://www.deepin.org
+Homepage: http://lingmo.org
 
 Package: dde-api
 Architecture: any
