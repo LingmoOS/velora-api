@@ -47,7 +47,7 @@ BuildRequires:  go-lib-devel
 BuildRequires:  libgudev-devel
 BuildRequires:  make
 %{?systemd_requires}
-Requires:       deepin-desktop-base
+Requires:       lingmo-desktop-base
 Requires:       rfkill
 Requires(pre):  shadow-utils
 
