@@ -25,7 +25,7 @@ Release:        1
 Summary:        Go-lang bingding for dde-daemon
 License:        GPLv3+
 URL:            https://shuttle.corp.deepin.com/cache/tasks/19177/unstable-amd64/
-Source0:        %{name}-%{version}.orig.tar.xz
+Source0:        dde-api-%{version}.tar.gz
 
 BuildRequires:  libcanberra-devel
 BuildRequires:  deepin-gettext-tools
