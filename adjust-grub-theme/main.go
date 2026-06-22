@@ -34,7 +34,7 @@ const (
 	defaultThemeOutputDir = "/boot/grub/themes/"
 	defaultThemeInputDir  = "/usr/share/dde-api/data/grub-themes/"
 
-	themeNameNormal   = "deepin"
+	themeNameNormal   = "lingmo"
 	themeNameFallback = "deepin-fallback"
 )
 
@@ -76,8 +76,8 @@ func loadBackgroundImage() (image.Image, error) {
 	img, err := loadImage(filepath.Join(optThemeOutputDir, themeNameNormal, "background_source"))
 	if err != nil {
 		logger.Warning("failed to load image background_source:", err)
-		originDesktopImageFile := filepath.Join(optThemeInputDir, themeNameNormal, "background.origin.jpg")
-		img, err = loadImage(originDesktopImageFile)
+		backgroundFile := filepath.Join(optThemeInputDir, themeNameNormal, "background.png")
+		img, err = loadImage(backgroundFile)
 		if err != nil {
 			logger.Warning(err)
 			return nil, err
@@ -439,64 +439,76 @@ func adjustThemeNormalV25() error {
 		}
 	}
 
-	themeFile := filepath.Join(themeInputDir, "theme.txt.tpl")
-	theme, err := tt.ParseThemeFile(themeFile)
-	if err != nil {
-		return err
-	}
-
-	bootMenu := theme.FindComponentByType(tt.ComponentTypeBootMenu)
-	if bootMenu != nil {
-		adjustBootMenuV25(bootMenu, optScreenWidth, optScreenHeight)
-	}
-
-	for _, comp := range theme.Components {
-		if comp.Type == tt.ComponentTypeLabel {
-			adjustLabelText(comp)
-		}
-	}
-
+	themeTplFile := filepath.Join(themeInputDir, "theme.txt.tpl")
 	themeOutput := filepath.Join(themeOutputDir, "theme.txt")
-	themeOutputFh, err := os.Create(themeOutput)
-	if err != nil {
-		return err
-	}
-	defer func() {
-		_ = themeOutputFh.Close()
-	}()
-	bw := bufio.NewWriter(themeOutputFh)
-	// write head
-	_, err = fmt.Fprintf(bw, "#version:%d\n", VERSION)
-	if err != nil {
-		return err
-	}
-	_, err = fmt.Fprintf(bw, "#lang:%s\n", optLang)
+
+	tplExists, err := fileExists(themeTplFile)
 	if err != nil {
 		return err
 	}
 
-	var inputDir string
-	inputDir, err = filepath.Abs(themeInputDir)
-	if err != nil {
-		logger.Warning(err)
-		inputDir = themeInputDir
-	}
+	if tplExists {
+		theme, err := tt.ParseThemeFile(themeTplFile)
+		if err != nil {
+			return err
+		}
 
-	_, err = fmt.Fprintf(bw, "#themeInputDir:%s\n", inputDir)
-	if err != nil {
+		bootMenu := theme.FindComponentByType(tt.ComponentTypeBootMenu)
+		if bootMenu != nil {
+			adjustBootMenuV25(bootMenu, optScreenWidth, optScreenHeight)
+		}
+
+		for _, comp := range theme.Components {
+			if comp.Type == tt.ComponentTypeLabel {
+				adjustLabelText(comp)
+			}
+		}
+
+		themeOutputFh, err := os.Create(themeOutput)
+		if err != nil {
+			return err
+		}
+		defer func() {
+			_ = themeOutputFh.Close()
+		}()
+		bw := bufio.NewWriter(themeOutputFh)
+		// write head
+		_, err = fmt.Fprintf(bw, "#version:%d\n", VERSION)
+		if err != nil {
+			return err
+		}
+		_, err = fmt.Fprintf(bw, "#lang:%s\n", optLang)
+		if err != nil {
+			return err
+		}
+
+		var inputDir string
+		inputDir, err = filepath.Abs(themeInputDir)
+		if err != nil {
+			logger.Warning(err)
+			inputDir = themeInputDir
+		}
+
+		_, err = fmt.Fprintf(bw, "#themeInputDir:%s\n", inputDir)
+		if err != nil {
+			return err
+		}
+
+		_, err = fmt.Fprintln(bw, "#head end")
+		if err != nil {
+			return err
+		}
+
+		_, err = theme.WriteTo(bw)
+		if err != nil {
+			return err
+		}
+		err = bw.Flush()
 		return err
 	}
 
-	_, err = fmt.Fprintln(bw, "#head end")
-	if err != nil {
-		return err
-	}
-
-	_, err = theme.WriteTo(bw)
-	if err != nil {
-		return err
-	}
-	err = bw.Flush()
+	// fallback: copy theme.txt directly if no template exists
+	_, err = copyFile(filepath.Join(themeInputDir, "theme.txt"), themeOutput)
 	return err
 }
 
@@ -533,59 +545,71 @@ func adjustThemeFallback() error {
 		}
 	}
 
-	themeFile := filepath.Join(themeInputDir, "theme.txt.tpl")
-	theme, err := tt.ParseThemeFile(themeFile)
-	if err != nil {
-		return err
-	}
-
-	for _, comp := range theme.Components {
-		if comp.Type == tt.ComponentTypeLabel {
-			adjustLabelText(comp)
-		}
-	}
-
+	themeTplFile := filepath.Join(themeInputDir, "theme.txt.tpl")
 	themeOutput := filepath.Join(themeOutputDir, "theme.txt")
-	themeOutputFh, err := os.Create(themeOutput)
-	if err != nil {
-		return err
-	}
-	defer func() {
-		_ = themeOutputFh.Close()
-	}()
-	bw := bufio.NewWriter(themeOutputFh)
-	// write head
-	_, err = fmt.Fprintf(bw, "#version:%d\n", VERSION)
-	if err != nil {
-		return err
-	}
-	_, err = fmt.Fprintf(bw, "#lang:%s\n", optLang)
+
+	tplExists, err := fileExists(themeTplFile)
 	if err != nil {
 		return err
 	}
 
-	var inputDir string
-	inputDir, err = filepath.Abs(themeInputDir)
-	if err != nil {
-		logger.Warning(err)
-		inputDir = themeInputDir
-	}
+	if tplExists {
+		theme, err := tt.ParseThemeFile(themeTplFile)
+		if err != nil {
+			return err
+		}
 
-	_, err = fmt.Fprintf(bw, "#themeInputDir:%s\n", inputDir)
-	if err != nil {
+		for _, comp := range theme.Components {
+			if comp.Type == tt.ComponentTypeLabel {
+				adjustLabelText(comp)
+			}
+		}
+
+		themeOutputFh, err := os.Create(themeOutput)
+		if err != nil {
+			return err
+		}
+		defer func() {
+			_ = themeOutputFh.Close()
+		}()
+		bw := bufio.NewWriter(themeOutputFh)
+		// write head
+		_, err = fmt.Fprintf(bw, "#version:%d\n", VERSION)
+		if err != nil {
+			return err
+		}
+		_, err = fmt.Fprintf(bw, "#lang:%s\n", optLang)
+		if err != nil {
+			return err
+		}
+
+		var inputDir string
+		inputDir, err = filepath.Abs(themeInputDir)
+		if err != nil {
+			logger.Warning(err)
+			inputDir = themeInputDir
+		}
+
+		_, err = fmt.Fprintf(bw, "#themeInputDir:%s\n", inputDir)
+		if err != nil {
+			return err
+		}
+
+		_, err = fmt.Fprintln(bw, "#head end")
+		if err != nil {
+			return err
+		}
+
+		_, err = theme.WriteTo(bw)
+		if err != nil {
+			return err
+		}
+		err = bw.Flush()
 		return err
 	}
 
-	_, err = fmt.Fprintln(bw, "#head end")
-	if err != nil {
-		return err
-	}
-
-	_, err = theme.WriteTo(bw)
-	if err != nil {
-		return err
-	}
-	err = bw.Flush()
+	// fallback: copy theme.txt directly if no template exists
+	_, err = copyFile(filepath.Join(themeInputDir, "theme.txt"), themeOutput)
 	return err
 }
 
@@ -626,36 +650,8 @@ func loadV25BackgroundImage() (image.Image, image.Image, error) {
 	}
 	logger.Warning("failed to load image background_source:", err)
 
-	systemName, err := getSystemNameFromOSVersionFile(osVersionFile)
-	if err != nil || systemName == "" {
-		logger.Warningf("error get systemName %s: %v\n", systemName, err)
-		return nil, nil, err
-	}
-
-	var backgroundFilename, themeBackgroundFilename string
-	if strings.Contains(strings.ToLower(systemName), "deepin") {
-		backgroundFilename = "deepin_background.jpg"
-		themeBackgroundFilename = "deepin_background_in_theme.jpg"
-	} else {
-		backgroundFilename = "uos_background.jpg"
-		themeBackgroundFilename = "uos_background_in_theme.jpg"
-	}
-
-	backgroundFile := filepath.Join(optThemeInputDir, themeNameFallback, backgroundFilename)
-	themeBackgroundFile := filepath.Join(optThemeInputDir, themeNameFallback, themeBackgroundFilename)
+	backgroundFile := filepath.Join(optThemeInputDir, themeNameNormal, "background.png")
 	img, err = loadImage(backgroundFile)
-	if err == nil {
-		cmdImg, err := loadImage(themeBackgroundFile)
-		if err == nil {
-			return img, cmdImg, nil
-		}
-		logger.Warning(err)
-	} else {
-		logger.Warning(err)
-	}
-
-	originDesktopImageFile := filepath.Join(optThemeInputDir, themeNameNormal, "background.origin.jpg")
-	img, err = loadImage(originDesktopImageFile)
 	if err != nil {
 		logger.Warning(err)
 		return nil, nil, err
@@ -725,6 +721,17 @@ func copyThemeFiles(themeInputDir, themeOutputDir string) {
 	}
 	for _, fileInfo := range fileInfoList {
 		name := fileInfo.Name()
+		if fileInfo.IsDir() {
+			srcDir := filepath.Join(themeInputDir, name)
+			dstDir := filepath.Join(themeOutputDir, name)
+			err := os.MkdirAll(dstDir, 0755)
+			if err != nil {
+				logger.Warning("failed to create directory:", err)
+				continue
+			}
+			copyThemeFiles(srcDir, dstDir)
+			continue
+		}
 		ext := filepath.Ext(name)
 		if ext == ".png" || ext == ".pf2" {
 			srcFile := filepath.Join(themeInputDir, name)
@@ -1107,6 +1114,17 @@ func convertPropAbs2Rel(comp *tt.Component, propName string, orientation int) {
 	abs, _ := comp.GetPropInt(propName)
 	rel := tt.RelNum(round(float64(abs) / float64(ref) * 100.0))
 	comp.SetProp(propName, rel)
+}
+
+func fileExists(path string) (bool, error) {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true, nil
+	}
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	return false, err
 }
 
 func convertPropRel2Abs(comp *tt.Component, propName string, orientation int) {

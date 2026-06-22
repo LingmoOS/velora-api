@@ -3,7 +3,7 @@
 
 set -e
 
-themeDir="/boot/grub/themes/deepin"
+themeDir="/boot/grub/themes/lingmo"
 fallbackThemeDir=$themeDir-fallback
 adjustGrubThemeBin="/usr/lib/deepin-api/adjust-grub-theme"
 grubCfgFile=/boot/grub/grub.cfg
@@ -12,11 +12,11 @@ grubCfgFile=/boot/grub/grub.cfg
 setupFallbackTheme () {
     [ -d $fallbackThemeDir ] && return 0
     mkdir -p $fallbackThemeDir
-    resourceDir=/usr/share/dde-api/data/grub-themes/deepin
-    fallbackResourceDir=$resourceDir-fallback
+    resourceDir=/usr/share/dde-api/data/grub-themes/lingmo
+    fallbackResourceDir=/usr/share/dde-api/data/grub-themes/deepin-fallback
     cp $fallbackResourceDir/* $fallbackThemeDir
     [ -f $fallbackThemeDir/theme.txt.tpl ] && rm $fallbackThemeDir/theme.txt.tpl
-    cp $resourceDir/background.origin.jpg $fallbackThemeDir/background.jpg
+    cp $resourceDir/background.png $fallbackThemeDir/background.png
 }
 
 adjustGrubTheme () {
