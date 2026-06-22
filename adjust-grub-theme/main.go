@@ -76,12 +76,13 @@ func loadBackgroundImage() (image.Image, error) {
 	img, err := loadImage(filepath.Join(optThemeOutputDir, themeNameNormal, "background_source"))
 	if err != nil {
 		logger.Warning("failed to load image background_source:", err)
-		backgroundFile := filepath.Join(optThemeInputDir, themeNameNormal, "background.png")
-		img, err = loadImage(backgroundFile)
-		if err != nil {
-			logger.Warning(err)
-			return nil, err
+		for _, name := range []string{"background.png", "background.origin.jpg"} {
+			img, err = loadImage(filepath.Join(optThemeInputDir, themeNameNormal, name))
+			if err == nil {
+				return img, nil
+			}
 		}
+		return nil, err
 	}
 	return img, nil
 }
@@ -650,13 +651,13 @@ func loadV25BackgroundImage() (image.Image, image.Image, error) {
 	}
 	logger.Warning("failed to load image background_source:", err)
 
-	backgroundFile := filepath.Join(optThemeInputDir, themeNameNormal, "background.png")
-	img, err = loadImage(backgroundFile)
-	if err != nil {
-		logger.Warning(err)
-		return nil, nil, err
+	for _, name := range []string{"background.png", "background.origin.jpg"} {
+		img, err = loadImage(filepath.Join(optThemeInputDir, themeNameNormal, name))
+		if err == nil {
+			return img, nil, nil
+		}
 	}
-	return img, nil, nil
+	return nil, nil, err
 }
 
 func main() {

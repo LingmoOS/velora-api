@@ -182,15 +182,15 @@ func (s *su) TestGetFallbackDir() {
 
 func (s *su) TestSetBackground() {
 	defer func() {
-		_ = os.RemoveAll(filepath.Join("testdata/deepin", "background.jpg"))
-		_ = os.RemoveAll(filepath.Join("testdata/deepin", "background_source"))
-		_ = os.RemoveAll(filepath.Join("testdata/deepin-fallback", "background.jpg"))
+		_ = os.RemoveAll(filepath.Join("testdata/lingmo", "background.jpg"))
+		_ = os.RemoveAll(filepath.Join("testdata/lingmo", "background_source"))
+		_ = os.RemoveAll(filepath.Join("testdata/lingmo-fallback", "background.jpg"))
 	}()
 	filenamePrefix := "menu"
-	setBackground("testdata/deepin/background.origin.jpg")
+	setBackground("testdata/lingmo/background.origin.jpg")
 	for _, name := range items {
 		fileName := strings.Join([]string{filenamePrefix, "_", name, ".png"}, "")
-		fileNamePath := filepath.Join("testdata/deepin", fileName)
+		fileNamePath := filepath.Join("testdata/lingmo", fileName)
 		assert.FileExists(s.T(), fileNamePath)
 		_ = os.RemoveAll(fileNamePath)
 	}
@@ -220,15 +220,15 @@ func (s *su) TestAdjustThemeFallback() {
 }
 
 func (s *su) TestCopyBgSource() {
-	err := copyBgSource("testdata/deepin/background.origin.jpg")
+	err := copyBgSource("testdata/lingmo/background.origin.jpg")
 	assert.NoError(s.T(), err)
-	assert.FileExists(s.T(), "testdata/deepin/background_source")
+	assert.FileExists(s.T(), "testdata/lingmo/background_source")
 
-	_ = os.RemoveAll("testdata/deepin/background_source")
+	_ = os.RemoveAll("testdata/lingmo/background_source")
 }
 
 func (s *su) TestCopyThemeFiles() {
-	copyThemeFiles("testdata/deepin", "testdata")
+	copyThemeFiles("testdata/lingmo", "testdata")
 	assert.FileExists(s.T(), "testdata/terminal_box_c.png")
 	_ = os.RemoveAll("testdata/terminal_box_c.png")
 }
@@ -255,7 +255,7 @@ func (s *su) TestAdjustFont() {
 	if err != nil {
 		s.T().Skip(err)
 	}
-	theme, err := tt.ParseThemeFile("testdata/deepin/theme.txt.tpl")
+	theme, err := tt.ParseThemeFile("testdata/lingmo/theme.txt.tpl")
 	vars := map[string]float64{
 		"std_font_size": float64(18),
 	}
@@ -274,7 +274,7 @@ func (s *su) TestAdjustTerminalFont() {
 	if err != nil {
 		s.T().Skip(err)
 	}
-	theme, err := tt.ParseThemeFile("testdata/deepin/theme.txt.tpl")
+	theme, err := tt.ParseThemeFile("testdata/lingmo/theme.txt.tpl")
 	vars := map[string]float64{
 		"std_font_size": float64(18),
 	}
@@ -293,7 +293,7 @@ func (s *su) TestAdjustProp() {
 	if err != nil {
 		s.T().Skip(err)
 	}
-	theme, err := tt.ParseThemeFile("testdata/deepin/theme.txt.tpl")
+	theme, err := tt.ParseThemeFile("testdata/lingmo/theme.txt.tpl")
 	require.NoError(s.T(), err)
 	require.NotNil(s.T(), theme)
 	itemHeight := adjustProp(theme.Components[0], "item_height", map[string]float64{
@@ -301,14 +301,14 @@ func (s *su) TestAdjustProp() {
 	})
 	assert.Equal(s.T(), 28, itemHeight)
 
-	theme, err = tt.ParseThemeFile("testdata/deepin/theme.txt.tpl")
+	theme, err = tt.ParseThemeFile("testdata/lingmo/theme.txt.tpl")
 	assert.NoError(s.T(), err)
 	itemHeight = adjustProp(theme.Components[0], "item_height", map[string]float64{
 		"font_height": float64(5),
 	})
 	assert.Equal(s.T(), 8, itemHeight)
 
-	theme, err = tt.ParseThemeFile("testdata/deepin/theme.txt.tpl")
+	theme, err = tt.ParseThemeFile("testdata/lingmo/theme.txt.tpl")
 	assert.NoError(s.T(), err)
 	itemHeight = adjustProp(theme.Components[0], "item_height", map[string]float64{
 		"font_height": float64(10),
