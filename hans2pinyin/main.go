@@ -13,14 +13,14 @@ import (
 	"log"
 
 	"github.com/godbus/dbus/v5"
-	"github.com/linuxdeepin/go-lib/dbusutil"
-	"github.com/linuxdeepin/go-lib/pinyin"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/pinyin"
 )
 
 //go:generate dbusutil-gen em -type Manager
 
 const (
-	dbusServiceName = "org.deepin.dde.Pinyin1"
+	dbusServiceName = "org.lingmo.Pinyin1"
 	dbusPath        = "/org/deepin/dde/Pinyin1"
 	dbusInterface   = dbusServiceName
 )

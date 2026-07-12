@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/godbus/dbus/v5"
-	polkit "github.com/linuxdeepin/go-dbus-factory/system/org.freedesktop.policykit1"
+	polkit "github.com/LingmoOS/golang-github-lingmo-go-dbus-factory/system/org.freedesktop.policykit1"
 )
 
 var errAuthFailed = errors.New("authentication failed")

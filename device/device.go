@@ -11,15 +11,15 @@ import (
 	"sync"
 
 	"github.com/godbus/dbus/v5"
-	"github.com/linuxdeepin/go-lib/dbusutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
 
-	polkit "github.com/linuxdeepin/go-dbus-factory/system/org.freedesktop.policykit1"
+	polkit "github.com/LingmoOS/golang-github-lingmo-go-dbus-factory/system/org.freedesktop.policykit1"
 )
 
 //go:generate dbusutil-gen em -type Device
 
 const (
-	dbusServiceName                 = "org.deepin.dde.Device1"
+	dbusServiceName                 = "org.lingmo.Device1"
 	dbusPath                        = "/org/deepin/dde/Device1"
 	dbusInterface                   = dbusServiceName
 	rfkillBin                       = "rfkill"

@@ -14,9 +14,9 @@ import (
 	"strings"
 
 	"github.com/godbus/dbus/v5"
-	appmanager "github.com/linuxdeepin/go-dbus-factory/session/org.deepin.dde.application1"
-	gio "github.com/linuxdeepin/go-gir/gio-2.0"
-	"github.com/linuxdeepin/go-lib/log"
+	appmanager "github.com/LingmoOS/golang-github-lingmo-go-dbus-factory/session/org.lingmo.application1"
+	gio "github.com/LingmoOS/go-gir-generator/gio-2.0"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/log"
 )
 
 const (

@@ -2,13 +2,13 @@
 pkgname=deepin-api-git
 pkgver=5.5.12.r8.ga0dc403
 pkgrel=1
-sourcename=dde-api
+sourcename=lingmo-api
 sourcetars=("$sourcename"_"$pkgver".tar.xz vendor.tar.gz)
 sourcedir="$sourcename"
 useforobs=1
-pkgdesc='Golang bindings for dde-daemon'
+pkgdesc='Golang bindings for lingmo-daemon'
 arch=('x86_64' 'aarch64')
-url="https://github.com/linuxdeepin/dde-api"
+url="https://github.com/linuxdeepin/lingmo-api"
 license=('GPL3')
 # alsa-utils: alsactl used in sound-theme-player
 # bc: used in adjust-grub-theme

@@ -1,0 +1,5 @@
+[D-BUS Service]
+Name=org.lingmo.LocaleHelper1
+Exec=/usr/lib/deepin-api/locale-helper
+User=root
+SystemdService=dbus-org.lingmo.LocaleHelper1.service

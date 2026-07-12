@@ -7,7 +7,7 @@ After=dbus.socket
 
 [Service]
 Type=dbus
-BusName=org.deepin.dde.LocaleHelper1
+BusName=org.lingmo.LocaleHelper1
 ExecStart=/usr/lib/deepin-api/locale-helper
 
 ReadWritePaths=/etc/default/locale
@@ -42,4 +42,4 @@ RestrictSUIDSGID=yes
 RemoveIPC=yes
 
 [Install]
-Alias=dbus-org.deepin.dde.LocaleHelper1.service
+Alias=dbus-org.lingmo.LocaleHelper1.service

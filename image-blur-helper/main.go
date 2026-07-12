@@ -12,9 +12,9 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/linuxdeepin/dde-api/blurimage"
-	"github.com/linuxdeepin/go-lib/graphic"
-	dutils "github.com/linuxdeepin/go-lib/utils"
+	"github.com/LingmoOS/velora-api/blurimage"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/graphic"
+	dutils "github.com/LingmoOS/golang-github-lingmo-go-lib/utils"
 
 	"gopkg.in/alecthomas/kingpin.v2"
 )

@@ -11,7 +11,7 @@ import (
 
 	"github.com/godbus/dbus/v5"
 	"github.com/gosexy/gettext"
-	"github.com/linuxdeepin/go-lib/dbusutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
 )
 
 //go:generate dbusutil-gen em -type Object

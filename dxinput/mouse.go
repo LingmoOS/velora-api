@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"strings"
 
-	. "github.com/linuxdeepin/dde-api/dxinput/common"
-	"github.com/linuxdeepin/dde-api/dxinput/kwayland"
-	"github.com/linuxdeepin/dde-api/dxinput/utils"
+	. "github.com/LingmoOS/velora-api/dxinput/common"
+	"github.com/LingmoOS/velora-api/dxinput/kwayland"
+	"github.com/LingmoOS/velora-api/dxinput/utils"
 )
 
 const (

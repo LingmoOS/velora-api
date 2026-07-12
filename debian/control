@@ -1,13 +1,13 @@
-Source: velora-api
+Source: lingmo-api
 Section: devel
 Priority: optional
 Maintainer: Lingmo OS Team <team@lingmo.org>
 Build-Depends:
  debhelper-compat (= 11),
- deepin-gettext-tools,
+ lingmo-gettext-tools,
  dh-golang,
  golang-any,
- golang-github-linuxdeepin-go-lib-dev (>> 5.8.4+),
+ golang-github-lingmo-go-lib-dev (>> 5.8.4+),
  golang-gir-gio-2.0-dev (>> 1.2.0+),
  golang-gir-glib-2.0-dev (>> 1.2.0+),
  golang-gir-gobject-2.0-dev (>> 1.2.0+),
@@ -16,8 +16,8 @@ Build-Depends:
  golang-github-fogleman-gg-dev,
  golang-github-gosexy-gettext-dev,
  golang-github-jinzhu-gorm-dev,
- golang-github-linuxdeepin-go-dbus-factory-dev (>> 0.7.0+),
- golang-github-linuxdeepin-go-x11-client-dev (>= 0.0.4),
+ golang-github-lingmo-go-dbus-factory-dev (>> 0.7.0+),
+ golang-github-lingmo-go-x11-client-dev (>= 0.0.4),
  golang-github-mattn-go-sqlite3-dev,
  golang-github-nfnt-resize-dev,
  golang-github-rickb777-date-dev,
@@ -40,7 +40,7 @@ Build-Depends:
 Standards-Version: 3.9.8
 Homepage: http://lingmo.org
 
-Package: dde-api
+Package: lingmo-api
 Architecture: any
 Depends:
  adduser,
@@ -56,21 +56,21 @@ Depends:
  fonts-unifont,
  ${misc:Depends},
  ${shlibs:Depends},
-Description: Go-lang bingdings for dde-daemon
+Description: Go-lang bingdings for lingmo-daemon
  DDE API provides some dbus interfaces that is used for screen zone
  detecting, thumbnail generating, sound playing, etc.
 
-Package: dde-api-dev
+Package: lingmo-api-dev
 Architecture: all
 Depends:
- golang-github-linuxdeepin-go-lib-dev (>= 1.2.13),
+ golang-github-lingmo-go-lib-dev (>= 1.2.13),
  golang-gir-gio-2.0-dev (>> 1.2.0+),
  golang-gir-glib-2.0-dev (>> 1.2.0+),
  golang-gir-gobject-2.0-dev (>> 1.2.0+),
  golang-gir-gudev-1.0-dev (>> 1.2.0+),
  golang-github-gosexy-gettext-dev,
- golang-github-linuxdeepin-go-dbus-factory-dev (>> 0.7.0+),
- golang-github-linuxdeepin-go-x11-client-dev (>= 0.0.4),
+ golang-github-lingmo-go-dbus-factory-dev (>> 0.7.0+),
+ golang-github-lingmo-go-x11-client-dev (>= 0.0.4),
  golang-gopkg-alecthomas-kingpin.v2-dev,
  libcairo2-dev,
  libcanberra-dev,
@@ -83,6 +83,6 @@ Depends:
  libxi-dev,
  ${misc:Depends},
  ${shlibs:Depends},
-Description: Go-lang bindings for dde-daemon -- dev file
+Description: Go-lang bindings for lingmo-daemon -- dev file
  DDE API provides some dbus interfaces that is used for screen zone
  detecting, thumbnail generating, sound playing, etc.

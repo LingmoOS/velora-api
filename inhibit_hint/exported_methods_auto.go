@@ -3,7 +3,7 @@
 package inhibit_hint
 
 import (
-	"github.com/linuxdeepin/go-lib/dbusutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
 )
 
 func (v *Object) GetExportedMethods() dbusutil.ExportedMethods {

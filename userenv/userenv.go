@@ -16,7 +16,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/linuxdeepin/go-lib/xdg/basedir"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/xdg/basedir"
 )
 
 var defaultFile = filepath.Join(basedir.GetUserHomeDir(), ".dde_env")

@@ -9,8 +9,8 @@ import (
 	"os"
 
 	"github.com/godbus/dbus/v5"
-	sessionmanager "github.com/linuxdeepin/go-dbus-factory/session/org.deepin.dde.sessionmanager1"
-	"github.com/linuxdeepin/go-lib/utils"
+	sessionmanager "github.com/LingmoOS/golang-github-lingmo-go-dbus-factory/session/org.lingmo.sessionmanager1"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/utils"
 )
 
 // Register will register to session manager if program is started from startdde.

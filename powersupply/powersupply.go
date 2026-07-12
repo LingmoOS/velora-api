@@ -8,8 +8,8 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/linuxdeepin/dde-api/powersupply/battery"
-	"github.com/linuxdeepin/go-gir/gudev-1.0"
+	"github.com/LingmoOS/velora-api/powersupply/battery"
+	"github.com/LingmoOS/go-gir-generator/gudev-1.0"
 )
 
 const (

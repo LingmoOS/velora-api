@@ -10,7 +10,7 @@ After=dbus.socket
 
 [Service]
 Type=dbus
-BusName=org.deepin.dde.SoundThemePlayer1
+BusName=org.lingmo.SoundThemePlayer1
 User=deepin-daemon
 SupplementaryGroups=audio
 Environment=HOME=/var/lib/deepin-sound-player
@@ -40,4 +40,4 @@ RestrictSUIDSGID=yes
 RemoveIPC=yes
 
 [Install]
-Alias=dbus-org.deepin.dde.SoundThemePlayer1.service
+Alias=dbus-org.lingmo.SoundThemePlayer1.service

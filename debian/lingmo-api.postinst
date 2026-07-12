@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for dde-api
+# postinst script for lingmo-api
 
 set -e
 
@@ -12,8 +12,8 @@ grubCfgFile=/boot/grub/grub.cfg
 setupFallbackTheme () {
     [ -d $fallbackThemeDir ] && return 0
     mkdir -p $fallbackThemeDir
-    resourceDir=/usr/share/dde-api/data/grub-themes/lingmo
-    fallbackResourceDir=/usr/share/dde-api/data/grub-themes/deepin-fallback
+    resourceDir=/usr/share/lingmo-api/data/grub-themes/lingmo
+    fallbackResourceDir=/usr/share/lingmo-api/data/grub-themes/deepin-fallback
     cp $fallbackResourceDir/* $fallbackThemeDir
     [ -f $fallbackThemeDir/theme.txt.tpl ] && rm $fallbackThemeDir/theme.txt.tpl
     cp $resourceDir/background.png $fallbackThemeDir/background.png

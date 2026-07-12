@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/linuxdeepin/dde-api/lang_info"
+	"github.com/LingmoOS/velora-api/lang_info"
 )
 
 const (

@@ -9,10 +9,10 @@ import (
 	"sync"
 
 	"github.com/godbus/dbus/v5"
-	configManager "github.com/linuxdeepin/go-dbus-factory/org.desktopspec.ConfigManager"
-	"github.com/linuxdeepin/go-lib/log"
-	"github.com/linuxdeepin/go-lib/sound_effect"
-	"github.com/linuxdeepin/go-lib/strv"
+	configManager "github.com/LingmoOS/golang-github-lingmo-go-dbus-factory/org.desktopspec.ConfigManager"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/log"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/sound_effect"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/strv"
 )
 
 const (

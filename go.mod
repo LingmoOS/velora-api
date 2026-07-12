@@ -1,4 +1,4 @@
-module github.com/linuxdeepin/dde-api
+module github.com/LingmoOS/velora-api
 
 go 1.20
 
@@ -7,9 +7,9 @@ require (
 	github.com/fogleman/gg v1.3.0
 	github.com/godbus/dbus/v5 v5.1.0
 	github.com/gosexy/gettext v0.0.0-20160830220431-74466a0a0c4a
-	github.com/linuxdeepin/go-dbus-factory v0.0.0-20260227070938-bcb8d12841ab
-	github.com/linuxdeepin/go-gir v0.0.0-20251127080441-d9c47dbb6da4
-	github.com/linuxdeepin/go-lib v0.0.0-20260205120541-a1f572ce1442
+	github.com/LingmoOS/golang-github-lingmo-go-dbus-factory v0.0.0-20260227070938-bcb8d12841ab
+	github.com/LingmoOS/go-gir-generator v0.0.0-20251127080441-d9c47dbb6da4
+	github.com/LingmoOS/golang-github-lingmo-go-lib v0.0.0-20260205120541-a1f572ce1442
 	github.com/linuxdeepin/go-x11-client v0.0.0-20230131052004-7503e2337ee1
 	github.com/stretchr/testify v1.8.1
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6

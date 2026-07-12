@@ -19,8 +19,8 @@ import (
 	"os"
 	"unsafe"
 
-	. "github.com/linuxdeepin/dde-api/dxinput/common"
-	"github.com/linuxdeepin/dde-api/dxinput/kwayland"
+	. "github.com/LingmoOS/velora-api/dxinput/common"
+	"github.com/LingmoOS/velora-api/dxinput/kwayland"
 )
 
 func ListDevice() DeviceInfos {

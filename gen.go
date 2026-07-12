@@ -4,16 +4,16 @@
 
 package api
 
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/device
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/graphic
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/locale-helper
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/thumbnailer
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/hans2pinyin
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/cursor-helper
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/gtk-thumbnailer
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/sound-theme-player
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/deepin-shutdown-sound
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/dde-open
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/adjust-grub-theme
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/image-blur
-//go:generate go build -o target/ github.com/linuxdeepin/dde-api/image-blur-helper
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/device
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/graphic
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/locale-helper
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/thumbnailer
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/hans2pinyin
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/cursor-helper
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/gtk-thumbnailer
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/sound-theme-player
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/deepin-shutdown-sound
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/dde-open
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/adjust-grub-theme
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/image-blur
+//go:generate go build -o target/ github.com/LingmoOS/velora-api/image-blur-helper

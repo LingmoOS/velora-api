@@ -9,9 +9,9 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/linuxdeepin/dde-api/soundutils"
-	"github.com/linuxdeepin/go-lib/log"
-	"github.com/linuxdeepin/go-lib/sound_effect"
+	"github.com/LingmoOS/velora-api/soundutils"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/log"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/sound_effect"
 )
 
 var logger = log.NewLogger("api/shutdown-sound")

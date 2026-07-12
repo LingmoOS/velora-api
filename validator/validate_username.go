@@ -9,7 +9,7 @@ import (
 	"regexp"
 
 	"github.com/godbus/dbus/v5"
-	"github.com/linuxdeepin/go-lib/users/passwd"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/users/passwd"
 )
 
 const (

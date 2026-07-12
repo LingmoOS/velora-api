@@ -18,8 +18,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/linuxdeepin/go-lib/encoding/kv"
-	"github.com/linuxdeepin/go-lib/imgutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/encoding/kv"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/imgutil"
 )
 
 // copy from go source

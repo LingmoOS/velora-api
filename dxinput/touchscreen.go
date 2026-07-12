@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"errors"
 
-	. "github.com/linuxdeepin/dde-api/dxinput/common"
-	"github.com/linuxdeepin/dde-api/dxinput/utils"
+	. "github.com/LingmoOS/velora-api/dxinput/common"
+	"github.com/LingmoOS/velora-api/dxinput/utils"
 )
 
 const (

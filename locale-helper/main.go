@@ -9,9 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/linuxdeepin/go-lib/dbusutil"
-	"github.com/linuxdeepin/go-lib/log"
-	dutils "github.com/linuxdeepin/go-lib/utils"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/log"
+	dutils "github.com/LingmoOS/golang-github-lingmo-go-lib/utils"
 )
 
 //go:generate dbusutil-gen em -type Helper

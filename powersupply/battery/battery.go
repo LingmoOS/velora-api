@@ -5,7 +5,7 @@
 package battery
 
 import (
-	"github.com/linuxdeepin/go-gir/gudev-1.0"
+	"github.com/LingmoOS/go-gir-generator/gudev-1.0"
 	"math"
 )
 

@@ -7,7 +7,7 @@ package dxinput
 import (
 	"errors"
 
-	"github.com/linuxdeepin/dde-api/dxinput/utils"
+	"github.com/LingmoOS/velora-api/dxinput/utils"
 )
 
 const (

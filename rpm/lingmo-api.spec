@@ -15,20 +15,20 @@
 %global _smp_mflags -j1
 %endif
 
-%global goipath  github.com/linuxdeepin/dde-api
-%global forgeurl https://github.com/linuxdeepin/dde-api
+%global goipath  github.com/linuxdeepin/lingmo-api
+%global forgeurl https://github.com/linuxdeepin/lingmo-api
 %global tag      %{version}
 
-Name:           dde-api
+Name:           lingmo-api
 Version:        6.0.7
 Release:        1
-Summary:        Go-lang bingding for dde-daemon
+Summary:        Go-lang bingding for lingmo-daemon
 License:        GPLv3+
 URL:            https://shuttle.corp.deepin.com/cache/tasks/19177/unstable-amd64/
 Source0:        dde-api-%{version}.tar.gz
 
 BuildRequires:  libcanberra-devel
-BuildRequires:  deepin-gettext-tools
+BuildRequires:  lingmo-gettext-tools
 BuildRequires:  librsvg2-devel
 BuildRequires:  sqlite-devel
 BuildRequires:  compiler(go-compiler)
@@ -111,8 +111,8 @@ mkdir -p %{buildroot}%{_sharedstatedir}/deepin-daemon
 %{_datadir}/dbus-1/system-services/*.service
 %{_datadir}/dbus-1/system.d/*.conf
 %{_datadir}/icons/hicolor/*/actions/*
-%{_datadir}/dde-api/data/pkg_depends
-%{_datadir}/dde-api/data/grub-themes/
+%{_datadir}/lingmo-api/data/pkg_depends
+%{_datadir}/lingmo-api/data/grub-themes/
 %{_datadir}/polkit-1/actions/org.deepin.dde.locale-helper.policy
 %{_datadir}/polkit-1/actions/org.deepin.dde.device.unblock-bluetooth-devices.policy
 %{_var}/lib/polkit-1/rules.d/org.deepin.dde.device.rules

@@ -17,17 +17,17 @@ import (
 	"time"
 
 	"github.com/godbus/dbus/v5"
-	"github.com/linuxdeepin/dde-api/soundutils"
-	"github.com/linuxdeepin/go-lib/dbusutil"
-	"github.com/linuxdeepin/go-lib/log"
-	"github.com/linuxdeepin/go-lib/sound_effect"
-	"github.com/linuxdeepin/go-lib/strv"
+	"github.com/LingmoOS/velora-api/soundutils"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/log"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/sound_effect"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/strv"
 )
 
 //go:generate dbusutil-gen em -type Manager
 
 const (
-	dbusServiceName = "org.deepin.dde.SoundThemePlayer1"
+	dbusServiceName = "org.lingmo.SoundThemePlayer1"
 	dbusPath        = "/org/deepin/dde/SoundThemePlayer1"
 	dbusInterface   = dbusServiceName
 	defaultHomeDir  = "/var/lib/deepin-sound-player"

@@ -6,20 +6,20 @@ package main
 
 import (
 	"github.com/godbus/dbus/v5"
-	"github.com/linuxdeepin/go-lib/dbusutil"
-	libgdkpixbuf "github.com/linuxdeepin/go-lib/gdkpixbuf"
-	libgraphic "github.com/linuxdeepin/go-lib/graphic"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/dbusutil"
+	libgdkpixbuf "github.com/LingmoOS/golang-github-lingmo-go-lib/gdkpixbuf"
+	libgraphic "github.com/LingmoOS/golang-github-lingmo-go-lib/graphic"
 )
 
 //go:generate dbusutil-gen em -type Graphic
 
 const (
-	dbusServiceName = "org.deepin.dde.Graphic1"
+	dbusServiceName = "org.lingmo.Graphic1"
 	dbusPath        = "/org/deepin/dde/Graphic1"
-	dbusInterface   = "org.deepin.dde.Graphic1"
+	dbusInterface   = "org.lingmo.Graphic1"
 )
 
-// Graphic is a dbus interface wrapper for github.com/linuxdeepin/go-lib/graphic.
+// Graphic is a dbus interface wrapper for github.com/LingmoOS/golang-github-lingmo-go-lib/graphic.
 type Graphic struct {
 	service *dbusutil.Service
 }

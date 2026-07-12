@@ -20,14 +20,14 @@ import (
 
 	"github.com/fogleman/gg"
 
-	"github.com/linuxdeepin/go-lib/graphic"
-	"github.com/linuxdeepin/go-lib/log"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/graphic"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/log"
 
 	"github.com/disintegration/imaging"
 
-	"github.com/linuxdeepin/dde-api/grub_theme/font"
-	tt "github.com/linuxdeepin/dde-api/grub_theme/themetxt"
-	"github.com/linuxdeepin/go-lib/locale"
+	"github.com/LingmoOS/velora-api/grub_theme/font"
+	tt "github.com/LingmoOS/velora-api/grub_theme/themetxt"
+	"github.com/LingmoOS/golang-github-lingmo-go-lib/locale"
 )
 
 const (

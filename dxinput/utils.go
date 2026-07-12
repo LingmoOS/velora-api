@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/linuxdeepin/dde-api/dxinput/utils"
+	"github.com/LingmoOS/velora-api/dxinput/utils"
 )
 
 const (

@@ -120,7 +120,7 @@ install-binary:
 	# 默认不安装 deepin-locale-helper.service，只有显式开启时才保留
 ifneq ($(INSTALL_LOCALE_HELPER), 1)
 	rm -f ${DESTDIR}${SYSTEMD_SERVICE_DIR}/deepin-locale-helper.service; 
-	rm -f ${DESTDIR}${PREFIX}/share/dbus-1/system-services/org.deepin.dde.LocaleHelper1.service; 
+	rm -f ${DESTDIR}${PREFIX}/share/dbus-1/system-services/org.lingmo.LocaleHelper1.service;
 	rm -f ${DESTDIR}${PREFIX}/share/polkit-1/actions/org.deepin.dde.locale-helper.policy; 
 	rm -f ${DESTDIR}${PREFIX}/share/dbus-1/system.d/org.deepin.dde.LocaleHelper1.conf; 
 endif
