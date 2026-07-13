@@ -1,6 +1,6 @@
 PREFIX = /usr
 GOBUILD_DIR = gobuild
-GOPKG_PREFIX = github.com/linuxdeepin/dde-api
+GOPKG_PREFIX = github.com/LingmoOS/velora-api
 GOSITE_DIR = ${PREFIX}/share/gocode
 libdir = /lib
 SYSTEMD_LIB_DIR = ${libdir}
