@@ -112,8 +112,8 @@ install-binary:
 	mkdir -pv ${DESTDIR}/var/lib/polkit-1/rules.d
 	cp misc/polkit-rules/*.rules ${DESTDIR}/var/lib/polkit-1/rules.d/
 	
-	mkdir -pv ${DESTDIR}${PREFIX}/share/dde-api
-	cp -R misc/data ${DESTDIR}${PREFIX}/share/dde-api
+	mkdir -pv ${DESTDIR}${PREFIX}/share/lingmo-api
+	cp -R misc/data ${DESTDIR}${PREFIX}/share/lingmo-api
 
 	mkdir -pv ${DESTDIR}${SYSTEMD_SERVICE_DIR}
 	cp -R misc/systemd/system/*.service ${DESTDIR}${SYSTEMD_SERVICE_DIR}

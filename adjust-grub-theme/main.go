@@ -32,7 +32,7 @@ import (
 
 const (
 	defaultThemeOutputDir = "/boot/grub/themes/"
-	defaultThemeInputDir  = "/usr/share/dde-api/data/grub-themes/"
+	defaultThemeInputDir  = "/usr/share/lingmo-api/data/grub-themes/"
 
 	themeNameNormal   = "lingmo"
 	themeNameFallback = "deepin-fallback"
